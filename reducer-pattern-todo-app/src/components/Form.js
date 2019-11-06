@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import FormContext from "../context/FormContext";
 
 export default function Form() {
-    const { state, dispatch, formInput, setFormInput } = useContext(FormContext);
+    const { dispatch, formInput, setFormInput } = useContext(FormContext);
 
     const handleChange = (e) => {
         setFormInput(e.target.value)

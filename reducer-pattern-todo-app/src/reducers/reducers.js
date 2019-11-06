@@ -37,6 +37,31 @@ const appReducer = (state, action) => {
                     id: Date.now()
                 }
                 ]
+            };
+        case "MARK_TRUE_OR_FALSE":
+            let modifiedArray = state.todoList.map(eachObj => {
+                if (action.payload === eachObj.id) {
+                    return {
+                        ...eachObj,
+                        completed: !eachObj.completed,
+                    }
+                } else {
+                    return eachObj
+                }
+
+            })
+
+            return {
+                ...state,
+                todoList: modifiedArray
+            };
+        case "DELETE_COMPLETED":
+            let filteredArray = state.todoList.filter(eachObj => {
+                return eachObj.completed === false
+            });
+            return {
+                ...state,
+                todoList: filteredArray
             }
     }
 }
