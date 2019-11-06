@@ -40,17 +40,20 @@ const appReducer = (state, action) => {
             };
         case "MARK_TRUE_OR_FALSE":
             let modifiedArray = state.todoList.map(eachObj => {
+                // console.log(typeof action.payload, "payload")
+                // console.log(typeof eachObj.id, "eachobj.id")
                 if (action.payload === eachObj.id) {
+                    console.log("does this run?")
                     return {
                         ...eachObj,
-                        completed: !eachObj.completed,
+                        completed: !eachObj.completed
                     }
                 } else {
                     return eachObj
                 }
 
             })
-
+            // console.log(modifiedArray, "here")
             return {
                 ...state,
                 todoList: modifiedArray

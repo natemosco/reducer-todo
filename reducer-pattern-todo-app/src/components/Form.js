@@ -11,11 +11,16 @@ export default function Form() {
         e.preventDefault();
         dispatch({ type: "ADD", payload: formInput })
     }
+    const clearCompleted = (e) => {
+        e.preventDefault();
+        dispatch({ type: "DELETE_COMPLETED" })
+    }
     return (
-        <form type="submit" onSubmit={addTodo}>
+        <form>
             <label htmlFor="addStuff">Add Todo:</label>
             <input type="text" id="addStuff" value={formInput} placeholder="ex. mow the lawn" onChange={handleChange} />
-            <button>Add New Task</button>
+            <button onClick={addTodo}>Add New Task</button>
+            <button onClick={clearCompleted}>Clear Completed Tasks</button>
         </form>
     )
 } 
