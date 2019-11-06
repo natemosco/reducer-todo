@@ -26,7 +26,19 @@ const initialState = {
 }
 
 const appReducer = (state, action) => {
-    return <div></div>
+    switch (action.type) {
+        case "ADD":
+            return {
+                ...state,
+                todoList: [...state.todoList,
+                {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now()
+                }
+                ]
+            }
+    }
 }
 
 export { appReducer, initialState }

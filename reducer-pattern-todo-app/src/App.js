@@ -10,11 +10,11 @@ function App() {
   const [state, dispatch] = useReducer(appReducer, initialState);
   const [formInput, setFormInput] = useState("");
 
-  const
+
   return (
     <div className="App">
       <h1>Your Todo List</h1>
-      <FormContext.Provider value={state, dispatch, formInput}>
+      <FormContext.Provider value={{ state, dispatch, formInput, setFormInput }}>
         <TaskContainer></TaskContainer>
       </FormContext.Provider>
 

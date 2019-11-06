@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ListItem from "./ListItem";
 import Form from "./Form";
+import FormContext from "../context/FormContext";
+
+
 export default function TaskContainer() {
+    const { state } = useContext(FormContext)
     return (
         <div>
-            {/* something.map(todo => <ListItem key={todo.id} todo={todo}></ListItem>) */}
+            {state.todoList.map(todo => <ListItem key={todo.id} todo={todo}></ListItem>)}
             <Form></Form>
         </div>
     )
